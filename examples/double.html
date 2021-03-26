@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>double</title>
+  </head>
+  <body>
+    <!-- umd -->
+    <script src="/dist/na-toolkit.umd.js"></script>
+    <script>
+      console.log('double(2) ->', naToolkit.double(2))
+    </script>
+    <!-- es -->
+    <script type="module" src="/dist/na-toolkit.es5.js"></script>
+    <script type="module">
+      import naToolkit from '/dist/na-toolkit.es5.js' // 必须指明具体路径，在构建器中才能使用 'na-tookit'
+      console.log('double(2) ->', naToolkit.double(2))
+    </script>
+  </body>
+</html>
