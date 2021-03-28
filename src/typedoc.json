@@ -1,0 +1,5 @@
+{
+  "out": "docs",
+  "target": "es6",
+  "theme": "minimal"
+}
