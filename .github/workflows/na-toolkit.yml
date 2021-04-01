@@ -2,10 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - [ master, main ]
-  pull_request:
-    branches:
-      - [ master, main ]
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest,
