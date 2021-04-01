@@ -2,18 +2,25 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - [ master, main ]
+  pull_request:
+    branches:
+      - [ master, main ]
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest,
+    strategy:
+      matrix: 
+        include:
+          - node-version: 10.x
     steps:
       - name: Checkout
       - uses: actions/checkout@master
 
       - name: Build and Deploy
-      - users: JamesIves/github-pages-deploy-action@master
-      - env: 
+      - uses: JamesIves/github-pages-deploy-action@master
+      - env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: docs
-        BUILD_SCRIPT: npm install && npm run test:prod && npm run build
+        BUILD_SCRIPT: yarn && yarn test:prod && yarn build
