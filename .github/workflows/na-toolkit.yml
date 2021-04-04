@@ -13,6 +13,8 @@ jobs:
           - node-version: 11.x
     steps:
       - name: Checkout
+        uses: actions/checkout@master
+      - name: build and deploy
         run: yarn && yarn test:prod && yarn build && yarn deploy-docs
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
