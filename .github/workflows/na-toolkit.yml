@@ -3,13 +3,14 @@ on:
   push:
     branches:
       - master
+      - main
 jobs:
   build-and-deploy:
     runs-on: "ubuntu-latest"
     strategy:
       matrix: 
         include:
-          - node-version: 10.x
+          - node-version: 11.x
     steps:
       - name: Checkout
         run: yarn && yarn test:prod && yarn build && yarn deploy-docs
