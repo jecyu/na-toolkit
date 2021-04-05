@@ -24,7 +24,7 @@ jobs:
       - name: build and test
         run: yarn && yarn test:prod && yarn build 
       - name: Commit files
-        run: 
+        run: |
           cd $PUBLISH_DIR
           git init
           git config --local user.name $USER_NAME
