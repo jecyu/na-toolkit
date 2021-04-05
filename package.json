@@ -23,7 +23,7 @@
   "homepage": "https://github.com/naluduo233/na-toolkit#readme",
   "license": "MIT",
   "engines": {
-    "node": ">=11.0.0"
+    "node": ">=10.16.0"
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
