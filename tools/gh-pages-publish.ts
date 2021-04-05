@@ -15,7 +15,7 @@ if (typeof pkg.repository === "object") {
 
 let parsedUrl = url.parse(repoUrl)
 let repository = (parsedUrl.host || "") + (parsedUrl.path || "")
-let ghToken = process.env.ACCESS_TOKEN
+// let ghToken = process.env.ACCESS_TOKEN
 
 echo("Deploying docs!!!")
 cd("docs")
@@ -25,7 +25,10 @@ exec("git add .")
 exec('git config user.name "naluduo233"')
 exec('git config user.email "jecyu.lin@gmail.com"')
 exec('git commit -m "docs(docs): update gh-pages"')
+// exec(
+//   `git push --force --quiet "https://${ghToken}@${repository}" main:gh-pages`
+// )
 exec(
-  `git push --force --quiet "https://${ghToken}@${repository}" main:gh-pages`
+  `git push origin -f main:gh-pages`
 )
 echo("Docs deployed!!")
